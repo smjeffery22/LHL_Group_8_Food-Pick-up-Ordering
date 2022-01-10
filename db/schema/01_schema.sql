@@ -38,4 +38,3 @@ CREATE TABLE order_items (
   item_id INTEGER REFERENCES items(id) ON DELETE CASCADE
 );
 
-
