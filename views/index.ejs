@@ -53,6 +53,25 @@
     color: #009879;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 
 </style>
 
@@ -61,6 +80,17 @@
   <h3 style="font-family: fantasy;">Everything Fries. Everything Burgers.Everything Delicious</h3>
   <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;" >MENU</h2>
 
+  <h2>Menu Items</h2>
+<p>We have 3 famous burger meals.</p>
+
+<div class="dropdown">
+  <span>Burger Meals</span>
+  <div class="dropdown-content">
+  <p>Meal Option 1</p>
+  <p>Meal Option 2</p>
+  <p>Meal Option 3</p>
+  </div>
+</div>
 
   <table class="styled-table">
     <thead>
