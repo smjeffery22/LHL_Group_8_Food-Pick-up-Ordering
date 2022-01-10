@@ -5,3 +5,52 @@ html {
   margin: 0;
 }
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: #2e6c87;
+  background-color: #e6edf2;
+  font-size: 24px;
+  font-family: "Source Sans Pro";
+}
+
+main {
+  font-family: sans-serif;
+  color: black;
+  width: 90%;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #ffc8ff;;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.back-to-top {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  background: blue;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
