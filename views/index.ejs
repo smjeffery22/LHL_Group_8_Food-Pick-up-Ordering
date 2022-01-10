@@ -19,13 +19,14 @@
  * {
   box-sizing: border-box;
 }
-/* Create two equal columns that floats next to each other */
+/* Create three equal columns that floats next to each other */
 .column {
   float: left;
-  width: 50%;
+  width: 33.33%;
   padding: 10px;
   height: 300px; /* Should be removed. Only for demonstration */
 }
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -45,16 +46,14 @@
 <div class="row">
   <div class="column" style="background-color:#aaa;">
     <h2>Burgers</h2>
-    <p>Meal One</p>
-    <p>Meal Two</p>
-    <p>Meal Three</p>
-    <p>Meal Four</p>
-    <p>Meal Five</p>
+    <p>Light Burger</p>
+    <p>House Burger</p>
+    <p>Labs Burger</p>
   </div>
   <div class="column" style="background-color:#bbb;">
     <h2>Fries</h2>
-    <p>Meal One</p>
-    <p>Meal Three</p>
+    <p>Compass Fries</p>
+    <p>Slack Fries</p>
     <div class="column" style="background-color:#aaa;">
       <h2>Cold Beverages</h2>
       <p>Strawberry MilkShake</p>
