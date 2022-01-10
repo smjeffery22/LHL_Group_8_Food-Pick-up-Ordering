@@ -1,13 +1,9 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router = express.Router();
-const itemsQueries = require('../db/queries/items_queries')
+const itemsQueries = require('../db/queries/items_queries');
+const ordersQueries = require('../db/queries/orders_queries');
+
+// All routes for users
 
 router.get('/', (req, res) => {
   itemsQueries.getItems()
