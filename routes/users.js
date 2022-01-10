@@ -6,16 +6,21 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
+const itemsQueries = require('../db/queries/items_queries')
 
 router.get('/', (req, res) => {
-  res.send(req);
-  // res.send('users page');
+  itemsQueries.getItems()
+    .then((items) => {
+      res.json(items);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    })
 })
 
 router.post('/', (req, res) => {
-  res.send(req.query);
-  // res.send('users page - submit order and proceed to checkout');
+  res.send('users page - submit order and proceed to checkout');
 })
 
 router.get('/checkout', (req, res) => {
@@ -31,6 +36,8 @@ router.get('/confirmation', (req, res) => {
 })
 
 module.exports = router;
+
+
 
 // module.exports = (db) => {
 //   router.get("/", (req, res) => {
