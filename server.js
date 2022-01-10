@@ -7,6 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const db = require('./lib/db');
 
 // PG database client/connection setup
 // const { Pool } = require("pg");
@@ -40,7 +41,7 @@ const adminRoutes = require("./routes/admin");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/users", usersRoutes);
+app.use("/users", usersRoutes(db));
 app.use("/admin", adminRoutes);
 // Note: mount other resources here, using the same pattern above
 

@@ -1,57 +1,44 @@
 const express = require('express');
 const router = express.Router();
-const itemsQueries = require('../db/queries/items_queries');
-const ordersQueries = require('../db/queries/orders_queries');
 
-// all routes for users
+const usersRoutes = (db) => {
+  router.get('/', (req, res) => {
+    db.query(`SELECT * FROM items;`)
+      .then((data) => {
+        res.json(data.rows);
+      })
+      .catch((err) => console.log(err.message));
+  });
 
-// main page the user sees
-router.get('/', (req, res) => {
-  itemsQueries.getItems()
-    .then((items) => {
-      res.json(items);
-    })
-    .catch((err) => {
-      console.log(err.message);
-    })
-})
+  // for user to add items to the cart
+  router.post('/', (req, res) => {
+    const items = req.body;
+    console.log(items);
 
-// for user to add items to the cart
-router.post('/', (req, res) => {
-  itemsQueries.addItems()
-    .then((items) => {
-      res.json
-    })
-})
+    // const queryString = `
+    // INSERT INTO order_items (quantity, total_price, order_id, item_id)
+    // VALUES ($1, $2, $3, $4)
+    // RETURNING *`
+    // const values = [cart.quantity, cart.totalPrice, cart.orderId, cart.itemId]
 
-router.get('/checkout', (req, res) => {
-  res.send('checkout page');
-})
+    // return pool.query(queryString, values)
+    //   .then((data) => console.log('addItems:', data))
+    //   .catch((err) => console.log(err.message));
+  })
 
-router.post('/checkout', (req, res) => {
-  res.send('checkout page - chekout and proceed to confirmation page');
-})
+  router.get('/checkout', (req, res) => {
+    res.send('checkout page');
+  })
 
-router.get('/confirmation', (req, res) => {
-  res.send('confirmation page');
-})
+  router.post('/checkout', (req, res) => {
+    res.send('checkout page - chekout and proceed to confirmation page');
+  })
 
-module.exports = router;
+  router.get('/confirmation', (req, res) => {
+    res.send('confirmation page');
+  })
 
+  return router;
+};
 
-
-// module.exports = (db) => {
-//   router.get("/", (req, res) => {
-//     db.query(`SELECT * FROM users;`)
-//       .then(data => {
-//         const users = data.rows;
-//         res.json({ users });
-//       })
-//       .catch(err => {
-//         res
-//           .status(500)
-//           .json({ error: err.message });
-//       });
-//   });
-//   return router;
-// };
+module.exports = usersRoutes;
