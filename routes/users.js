@@ -3,8 +3,9 @@ const router = express.Router();
 const itemsQueries = require('../db/queries/items_queries');
 const ordersQueries = require('../db/queries/orders_queries');
 
-// All routes for users
+// all routes for users
 
+// main page the user sees
 router.get('/', (req, res) => {
   itemsQueries.getItems()
     .then((items) => {
@@ -15,8 +16,12 @@ router.get('/', (req, res) => {
     })
 })
 
+// for user to add items to the cart
 router.post('/', (req, res) => {
-  res.send('users page - submit order and proceed to checkout');
+  itemsQueries.addItems()
+    .then((items) => {
+      res.json
+    })
 })
 
 router.get('/checkout', (req, res) => {
