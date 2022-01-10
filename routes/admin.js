@@ -6,14 +6,32 @@ const ordersQueries = require('../db/queries/orders_queries');
 
 // show all orders
 router.get('/', (req, res) => {
+
+
   ordersQueries.getOrders()
     .then((orders) => {
-      res.json(orders);
+      let array = [];
+      ordersQueries.getOrderDetail()
+        .then((orderDetail) => {
+          array.push(orders, orderDetail);
+          res.json(array);
+        })
+
     })
     .catch((err) => {
       console.log(err.message);
     })
+
+  // ordersQueries.getOrderDetail()
+  // .then((orderDetail) => {
+  //   res.json(orderDetail);
+  // })
+  // .catch((err) => {
+  //   console.log(err.message);
+  // })
 })
+
+// patch request for update?
 
 // show one specific order
 router.get('/:id', (req, res) => {
