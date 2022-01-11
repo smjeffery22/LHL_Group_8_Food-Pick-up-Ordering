@@ -5,7 +5,8 @@ const usersRoutes = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM items;`)
       .then((data) => {
-        res.json(data.rows);
+        // res.json(data.rows);
+        res.render('../views/index', data.rows)
       })
       .catch((err) => console.log(err.message));
   });
@@ -13,17 +14,30 @@ const usersRoutes = (db) => {
   // for user to add items to the cart
   router.post('/', (req, res) => {
     const items = req.body;
-    console.log(items);
+    // console.log(items);
 
-    // const queryString = `
-    // INSERT INTO order_items (quantity, total_price, order_id, item_id)
-    // VALUES ($1, $2, $3, $4)
-    // RETURNING *`
-    // const values = [cart.quantity, cart.totalPrice, cart.orderId, cart.itemId]
+    const addItems = (items) => {
+      const queryString = `
+      INSERT INTO order_items (quantity, total_price, order_id, item_id)
+      VALUES ($1, $2, $3, $4)
+      RETURNING *`
+      const values = [items.quantity, items.totalPrice, items.orderId, items.itemId]
 
-    // return pool.query(queryString, values)
-    //   .then((data) => console.log('addItems:', data))
-    //   .catch((err) => console.log(err.message));
+      return db.query(queryString, values)
+        .then((data) => {
+          console.log(data.rows);
+
+        })
+        .catch((err) => console.log(err.message));
+    };
+
+    addItems(items);
+    res.redirect('/users/checkout');
+    // addItems(
+    //   { quantity: 1, totalPrice: 6.99, orderId: 3, itemId: 1 },
+    //   { quantity: 1, totalPrice: 3.99, orderId: 3, itemId: 4 },
+    //   { quantity: 1, totalPrice: 1.50, orderId: 3, itemId: 5 }
+    // );
   })
 
   router.get('/checkout', (req, res) => {

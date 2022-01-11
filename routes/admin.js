@@ -1,47 +1,41 @@
 const express = require('express');
 const router = express.Router();
-const ordersQueries = require('../db/queries/orders_queries');
 
 // all routes for admin
+const adminRoutes = (db) => {
+  // show all orders
+  router.get('/', (req, res) => {
+    const queryString = `
+    SELECT oi.order_id, oi.item_id, i.name AS item_name, oi.quantity
+    FROM order_items AS oi
+    JOIN items as i ON oi.item_id = i.id`
 
-// show all orders
-router.get('/', (req, res) => {
+    db.query(queryString)
+      .then((data) => {
+        res.json(data.rows);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  })
+
+  return router;
+};
+
+module.exports = adminRoutes;
 
 
-  ordersQueries.getOrders()
-    .then((orders) => {
-      let array = [];
-      ordersQueries.getOrderDetail()
-        .then((orderDetail) => {
-          array.push(orders, orderDetail);
-          res.json(array);
-        })
+// // patch request for update?
 
-    })
-    .catch((err) => {
-      console.log(err.message);
-    })
+// // show one specific order
+// router.get('/:id', (req, res) => {
+//   ordersQueries.getOrders(req.params.id)
+//     .then((order) => {
+//       res.json(order);
+//     })
+//     .catch((err) => {
+//       console.log(err.message);
+//     })
+// })
 
-  // ordersQueries.getOrderDetail()
-  // .then((orderDetail) => {
-  //   res.json(orderDetail);
-  // })
-  // .catch((err) => {
-  //   console.log(err.message);
-  // })
-})
-
-// patch request for update?
-
-// show one specific order
-router.get('/:id', (req, res) => {
-  ordersQueries.getOrders(req.params.id)
-    .then((order) => {
-      res.json(order);
-    })
-    .catch((err) => {
-      console.log(err.message);
-    })
-})
-
-module.exports = router;
+// module.exports = router;
