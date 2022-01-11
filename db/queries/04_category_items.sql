@@ -8,8 +8,10 @@ SELECT name, description, price
 FROM items
 WHERE category = 'Burgers';
 
-/* Shows all burgers on menu*/
+/* Shows all sides on menu*/
 SELECT name, description, price
 FROM items
 WHERE category = 'Sides';
+
+
 
