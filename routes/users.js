@@ -5,8 +5,18 @@ const usersRoutes = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM items;`)
       .then((data) => {
-        // res.json(data.rows);
-        res.render('../views/index', data.rows)
+        const rows = data.rows
+        console.log(rows);
+        const items = {};
+
+        for (const row of rows) {
+          items[row.id] = {
+            name: row.name,
+            category: row.category
+          }
+        }
+        console.log(items);
+        res.render('../views/index', {items})
       })
       .catch((err) => console.log(err.message));
   });
