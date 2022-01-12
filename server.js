@@ -49,15 +49,19 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/menu", (req, res) => {
-  res.render("index");
+  res.render("menu");
 });
 
 app.get("/", (req, res) => {
-  res.render("mainpage");
+  res.render("main");
 });
 
 app.get("/checkout", (req, res) => {
   res.render("checkout");
+});
+
+app.get("/confirmation", (req, res) => {
+  res.render("confirmation");
 });
 
 app.listen(PORT, () => {

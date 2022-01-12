@@ -18,7 +18,7 @@ const runSchemaFiles = function () {
 
   for (const fn of schemaFilenames) {
     const sql = fs.readFileSync(`./db/schema/${fn}`, 'utf8');
-    console.log(`\t-> Running ${chalk.green(fn)}`);
+    console.log(`\t-> Running ${chalk.(fn)}`);
     client.querySync(sql);
   }
 };
@@ -29,7 +29,7 @@ const runSeedFiles = function () {
 
   for (const fn of schemaFilenames) {
     const sql = fs.readFileSync(`./db/seeds/${fn}`, 'utf8');
-    console.log(`\t-> Running ${chalk.green(fn)}`);
+    console.log(`\t-> Running ${chalk.(fn)}`);
     client.querySync(sql);
   }
 };
