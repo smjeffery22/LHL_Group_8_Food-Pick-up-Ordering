@@ -7,12 +7,13 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const db = require('./lib/db');
 
 // PG database client/connection setup
-const { Pool } = require("pg");
-const dbParams = require("./lib/db.js");
-const db = new Pool(dbParams);
-db.connect();
+// const { Pool } = require("pg");
+// const dbParams = require("./lib/db.js");
+// const db = new Pool(dbParams);
+// db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -20,6 +21,9 @@ db.connect();
 app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
+// allows to send back and forth json objects
+app.use(express.json());
+// allows to send back and forth images, documents, etc.
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
@@ -35,19 +39,28 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+const itemsRoutes = require("./routes/items");
+const ordersRoutes = require("./routes/orders");
+const viewsRoutes = require("./routes/views");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+
+// rendering views - front-end
+app.use("/", viewsRoutes(db));
+
+// apis - sending back and forth data
+app.use("/api/v1/items", itemsRoutes(db));
+app.use("/api/v1/orders", ordersRoutes(db));
+
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+<<<<<<< HEAD
 app.get("/menu", (req, res) => {
   res.render("menu");
 });
@@ -55,10 +68,19 @@ app.get("/menu", (req, res) => {
 app.get("/", (req, res) => {
   res.render("main");
 });
+=======
+// app.get("/", (req, res) => {
+//   res.render("mainpage");
+// });
 
-app.get("/checkout", (req, res) => {
-  res.render("checkout");
-});
+// app.get("/menu", (req, res) => {
+//   res.render("index");
+// });
+>>>>>>> e1b3c83050f14ffc5114cc8b88df15aec577fabf
+
+// app.get("/checkout", (req, res) => {
+//   res.render("checkout");
+// });
 
 app.get("/confirmation", (req, res) => {
   res.render("confirmation");
