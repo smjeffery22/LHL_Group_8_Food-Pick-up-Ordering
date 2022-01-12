@@ -3,7 +3,7 @@ const router = express.Router();
 
 const viewsRoutes = (db) => {
   router.get("/", (req, res) => {
-    res.render("index");
+    res.render("main");
   });
 
   router.get('/checkout', (req, res) => {
