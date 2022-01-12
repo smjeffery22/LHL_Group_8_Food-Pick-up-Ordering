@@ -1,84 +1,78 @@
 // Client facing scripts here
 $(document).ready(function () {
-  const renderCartItem = (itemId) => {
-    return `
-    <p>${itemId} - <button class="remove-cart-item">(-)</button></p>
-`
-    // return `
-    // <div class="cart-item" style="margin: 1em">
-    //   <p>${itemData.name}</p>
-    //   <div>
-    //     <button>-</button>
-    //     <p>1</p>
-    //     <button>+</button>
-    //   </div>
-    //   <p class="price">$${itemData.price}</p>
-    //   <button class="remove-cart-item">(-)</button>
-    // </div>`
-  }
-
-  // add items to cart
+  // add items to the cart
+  const cart = [];
   const addCartButtons = $.find('.add-cart-button');
 
-  for (const button of addCartButtons) {
-    $(button).on('click', (e) => {
-      console.log('clicked');
-      // $('#cart-list').append(renderCartItem(e.target.id));
-    })
-  }
+  for (const addCartButton of addCartButtons) {
+    $(addCartButton).on('click', function (e) {
+      const cartList = $('#cart-list');
+      const itemNumber = e.target.id;
+      const itemName = $(this).parent().children('.item-name').text();
+      const itemPrice = $(this).parent().children('.item-price').text();
+      const isItemDuplicate = cartList.children(`#cart-${itemNumber}`).attr('id') !== `cart-${itemNumber}`;
 
-  // remove items from cart
-  $(".remove-cart-item").on('click', () => {
-    console.log('remove');
-    // $('.remove-cart-item').parent().remove();
+      // prevent duplicate items being added to the cart
+      if (isItemDuplicate) {
+        cartList.append(addToCart(itemNumber, itemName, itemPrice));
+      } else {
+        alert('Already added in the cart!');
+      }
+
+      // remove items from the cart
+      $(`#remove-cart-${itemNumber}`).on('click', function () {
+        $(this).parent().remove();
+      })
+
+      // update qty in cart
+      let cartQtyEl = $(`#cart-qty-${itemNumber}`);
+      let cartQty = parseInt(cartQtyEl.val());
+
+      $(`#cart-qty-add-${itemNumber}`).on('click', function () {
+        cartQty += 1;
+        cartQtyEl.val(cartQty);
+      })
+
+      $(`#cart-qty-rmv-${itemNumber}`).on('click', function () {
+        if (cartQty <= 1) {
+          $(this).parent().remove();
+        } else {
+          cartQty -= 1;
+          cartQtyEl.val(cartQty);
+        }
+      })
+    })
+
+  }
+  $('#checkout').on('click', () => {
+    console.log('checkout');
   })
 })
 
 
-
-
-
-// event listener for adding item to cart
-// $('.add-cart-button').on('click', () => {
-//   $('#cart-light-b').empty();
-
-//   $('#cart-light-b').append(`
-//   <div>
-//       Light Burger
-//       <button class="cart-qty-remove">-</button>
-//       <input type="number" class="cart-qty">
-//       <button class="cart-qty-add">+</button>
-//       $9.99
-//       $9.99
-//       <button class="cart-light-b-remove">(-)</button>
-//   </div>`)
+// cart.push({
+//   number: itemNumber,
+//   name: itemName,
+//   price: itemPrice,
+//   qty: 1,
+//   total: 123
 // });
 
-
-
-// event listener for removing item from cart
-$('.cart-light-b-remove').on('click', (e) => {
-  e.preventDefault();
-  $('.cart-light-b-remove').parent().remove();
-});
-
-// event listener for updating qty in cart
-const updateCartQty = () => {
-  let cartQty = parseInt($('.cart-qty').val());
-  console.log(typeof (cartQty));
-
-  $('.cart-qty-remove').on('click', (e) => {
-    e.preventDefault();
-    cartQty -= 1;
-    $('.cart-qty').val(cartQty);
-  })
-
-  $('.cart-qty-add').on('click', (e) => {
-    e.preventDefault();
-    cartQty += 1;
-    $('.cart-qty').val(cartQty);
-  })
+const addToCart = (number, name, price) => {
+  return `
+  <div id="cart-${number}" class="cart-item">
+    ${name}
+    ${price}
+    <button id="cart-qty-rmv-${number}" class="cart-qty-rmv">-</button><input id="cart-qty-${number}" class="cart-qty" type="number" value="1" min="1" style="width: 40px"><button id="cart-qty-add-${number}" class="cart-qty-add">+</button>
+    123
+    <button id="remove-cart-${number}" class="remove-cart-item">(x)</button>
+  </div>`
 }
 
-updateCartQty();
-})
+
+
+
+
+
+
+
