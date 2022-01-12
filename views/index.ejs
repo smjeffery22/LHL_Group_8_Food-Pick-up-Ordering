@@ -9,10 +9,11 @@
   <link rel="stylesheet" href="/styles/checkout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- <script type="text/javascript" src="/scripts/app.js"></script> -->
 </head>
 
 <body style="background-color: powderblue;">
+
   <header>
     <h1 class="restaurant-name">Burger Joint 🍔</h1>
     <h2 class="slogan" style="font-family: fantasy;">Everything Burgers. Everything Fries.Everything Delicious!</h2>
@@ -22,19 +23,42 @@
     <section class="menu">
       <h2 class="menu-title">Menu</h2>
       <div class="row menu-list">
-        <div class="column" style="background-color:#aaa; padding: 0.8em">
+        <div class="column menu-burgers" style="background-color:#aaa; padding: 0.8em">
           <h2>Burgers</h2>
-          <div id="menu-burgers"></div>
+            <% for (item of menuItems) { %>
+              <% if (item.category === 'Burgers') { %>
+                <img src="<%= item.photo_url %>" alt="burger image">
+                <h4> <%= item.name %> </h4>
+                <p>$ <%= item.description %></p>
+                <div class="price">$ <%= item.price %></div>
+                <div><button id="item-<%= item.id %>" class="add-cart-button">Add to Cart</button></div>
+              <% } %>
+            <% } %>
         </div>
-        <div class="column" style="background-color:#bbb; padding: 0.8em">
+        <div class="column menu-sides" style="background-color:#aaa; padding: 0.8em">
           <h2>Sides</h2>
-          <div id="menu-sides"></div>
+            <% for (item of menuItems) { %>
+              <% if (item.category === 'Sides') { %>
+                <img src="<%= item.photo_url %>" alt="side image">
+                <h4> <%= item.name %> </h4>
+                <p>$ <%= item.description %></p>
+                <div class="price">$ <%= item.price %></div>
+                <div><button id="item-<%= item.id %>" class="add-cart-button">Add to Cart</button></div>
+              <% } %>
+            <% } %>
         </div>
-        <div class="column" style="background-color:#ccc; padding: 0.8em">
+        <div class="column menu-drinks" style="background-color:#aaa; padding: 0.8em">
           <h2>Drinks</h2>
-          <div id="menu-drinks"></div>
+            <% for (item of menuItems) { %>
+              <% if (item.category === 'Drinks') { %>
+                <img src="<%= item.photo_url %>" alt="drink image">
+                <h4> <%= item.name %> </h4>
+                <p>$ <%= item.description %></p>
+                <div class="price">$ <%= item.price %></div>
+                <div><button id="item-<%= item.id %>" class="add-cart-button">Add to Cart</button></div>
+              <% } %>
+            <% } %>
         </div>
-      </div>
     </section>
 
     <section class="checkout cart">
