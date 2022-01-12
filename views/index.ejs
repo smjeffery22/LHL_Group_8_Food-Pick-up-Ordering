@@ -2,68 +2,47 @@
 <html lang="en">
 
 <head>
-  <title>Burger Joint 🍔</title>
+  <title>Menu</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.scss" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.scss" type="text/css" />
-  <link rel="stylesheet" href="/styles/nav.scss" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/checkout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
-<style>
- * {
-  box-sizing: border-box;
-}
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-</style>
-
 <body style="background-color: powderblue;">
-  <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Burger Joint 🍔</h1>
-  <h3 style="font-family: fantasy;">Everything Burgers. Everything Fries.Everything Delicious.</h3>
-  <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;" >MENU</h2>
+  <header>
+    <h1 class="restaurant-name">Burger Joint 🍔</h1>
+    <h2 class="slogan" style="font-family: fantasy;">Everything Burgers. Everything Fries.Everything Delicious!</h2>
+  </header>
 
+  <main class="menu-container">
+    <section class="menu">
+      <h2 class="menu-title">Menu</h2>
+      <div class="row menu-list">
+        <div class="column" style="background-color:#aaa; padding: 0.8em">
+          <h2>Burgers</h2>
+          <div id="menu-burgers"></div>
+        </div>
+        <div class="column" style="background-color:#bbb; padding: 0.8em">
+          <h2>Sides</h2>
+          <div id="menu-sides"></div>
+        </div>
+        <div class="column" style="background-color:#ccc; padding: 0.8em">
+          <h2>Drinks</h2>
+          <div id="menu-drinks"></div>
+        </div>
+      </div>
+    </section>
 
-
-<div class="row">
-  <div class="column" style="background-color:#aaa;">
-    <h2>Combo Items</h2>
-    <p>Meal One</p>
-    <p>Meal Two</p>
-    <p>Meal Three</p>
-    <p>Meal Four</p>
-    <p>Meal Five</p>
-  </div>
-  <div class="column" style="background-color:#bbb;">
-    <h2>Your Cart</h2>
-    <p>Meal One</p>
-    <p>Meal Three</p>
-
-  </div>
-</div>
-
-
-
-
-<h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">PLACE YOUR ORDER HERE</h2>
-
+    <section class="checkout cart">
+      <h3 class="checkout-title">CART</h3>
+      <div id="cart-list"></div>
+      <button id="checkout">CHECKOUT</button>
+    </section>
+  </main>
 </body>
 
 </html>
