@@ -41,17 +41,17 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const itemsRoutes = require("./routes/items");
 const ordersRoutes = require("./routes/orders");
-// const viewsRoutes = require("./routes/views");
+const viewsRoutes = require("./routes/views");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
 // rendering views - front-end
-// app.use("/", viewsRoutes(db));
+app.use("/", viewsRoutes(db));
 
 // apis - sending back and forth data
-app.use("/", itemsRoutes(db));
-app.use("/orders", ordersRoutes(db));
+app.use("/api/v1/items", itemsRoutes(db));
+app.use("/api/v1/orders", ordersRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above
@@ -60,7 +60,6 @@ app.use("/orders", ordersRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-<<<<<<< html-feature
 
 app.get("/", (req, res) => {
   res.render("mainpage");
@@ -74,7 +73,6 @@ app.get("/menu", (req, res) => {
 app.get("/checkout", (req, res) => {
   res.render("checkout");
 });
-=======
 // app.get("/", (req, res) => {
 //   res.render("mainpage");
 // });
@@ -82,7 +80,6 @@ app.get("/checkout", (req, res) => {
 // app.get("/menu", (req, res) => {
 //   res.render("index");
 // });
->>>>>>> master
 
 // app.get("/checkout", (req, res) => {
 //   res.render("checkout");
