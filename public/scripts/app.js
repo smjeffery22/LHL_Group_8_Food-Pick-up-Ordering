@@ -1,14 +1,31 @@
 // Client facing scripts here
+
 $(document).ready(function () {
+
   const renderMenuItem = (itemData) => {
     return `
-    <div class="card" style="margin: 1em">
-      <img src="${itemData.photo_url}" alt="burger image"  width="300">
-      <h4>${itemData.name}</h4>
-      <p>${itemData.description}</p>
-      <p class="price">$${itemData.price}</p>
-      <button id="item-${itemData.id}" class="add-cart-button">Add to Cart</button>
-    </div>`
+    <div class="container">
+     <div class="row">
+        <div class="col-sm-12 col-lg-6">
+    <div class="card" style="flex-direction:unset">
+      <img class="card-img" src="${itemData.photo_url}" class="burger-image" alt="burger image"">
+      <div class="card-img-overlay d-flex justify-content-end">
+          <a href="#" class="card-link text-danger like">
+            <i class="fas fa-heart"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">${itemData.name}</h4>
+          <p class="card-text">
+            ${itemData.description}</p>
+
+          <div class="buy d-flex justify-content-between align-items-center">
+            <div class="price text-success"><h5 class="mt-4">${itemData.price}</h5></div>
+             <a href="#" class="btn btn-danger mt-3" id="item-${itemData.id}><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+    </div>
+  </div>
+</div>`
   }
 
   const renderCartItem = (itemId) => {
@@ -25,6 +42,7 @@ $(document).ready(function () {
     //   <button class="remove-cart-item">(-)</button>
     // </div>`
   }
+
 
   $.get("/api/v1/items")
     .then(menuItems => {
@@ -99,3 +117,4 @@ $(document).ready(function () {
 
   updateCartQty();
 })
+
