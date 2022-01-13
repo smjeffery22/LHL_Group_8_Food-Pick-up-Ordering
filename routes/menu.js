@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const itemsRoutes = (db) => {
+const menuRoutes = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM items;`)
       .then((data) => res.json(data.rows))
@@ -11,4 +11,4 @@ const itemsRoutes = (db) => {
   return router;
 };
 
-module.exports = itemsRoutes;
+module.exports = menuRoutes;

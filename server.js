@@ -39,19 +39,21 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const itemsRoutes = require("./routes/items");
+const usersRoutes = require("./routes/users");
+const adminRoutes = require("./routes/admin");
+const menuRoutes = require("./routes/menu");
 const ordersRoutes = require("./routes/orders");
-const viewsRoutes = require("./routes/views");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
 // rendering views - front-end
-app.use("/", viewsRoutes(db));
+app.use("/users", usersRoutes(db));
+app.use("/admin", adminRoutes(db));
 
 // apis - sending back and forth data
-app.use("/api/v1/items", itemsRoutes(db));
-app.use("/api/v1/orders", ordersRoutes(db));
+app.use("/api/menu", menuRoutes(db));
+app.use("/api/orders", ordersRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above

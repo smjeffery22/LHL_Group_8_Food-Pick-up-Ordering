@@ -25,7 +25,9 @@ $(document).ready(function () {
   }
 
   const renderCartItem = (itemId) => {
-    return `<p>${itemId}</p>`
+    return `
+    <p>${itemId} - <button class="remove-cart-item">(-)</button></p>
+`
     // return `
     // <div class="cart-item" style="margin: 1em">
     //   <p>${itemData.name}</p>
@@ -42,6 +44,7 @@ $(document).ready(function () {
 
   $.get("/api/v1/items")
     .then(menuItems => {
+      // render menu items
       for (const item of menuItems) {
         if (item.category === 'Burgers') {
           $('#menu-burgers').append(renderMenuItem(item));
@@ -56,6 +59,7 @@ $(document).ready(function () {
         }
       }
 
+      // add items to cart
       const addCartButtons = $.find('.add-cart-button');
 
       for (const button of addCartButtons) {
@@ -63,6 +67,12 @@ $(document).ready(function () {
           $('#cart-list').append(renderCartItem(e.target.id));
         })
       }
+
+      // remove items from cart
+      $(".remove-cart-item").on('click', () => {
+        console.log('remove');
+        // $('.remove-cart-item').parent().remove();
+      })
     })
 
 
