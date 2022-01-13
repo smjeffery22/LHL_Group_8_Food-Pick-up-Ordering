@@ -3,7 +3,7 @@ $(document).ready(function () {
   const renderMenuItem = (itemData) => {
     return `
     <div class="card" style="margin: 1em">
-      <img src="${itemData.photo_url}" alt="burger image">
+      <img src="${itemData.photo_url}" alt="burger image"  width="300">
       <h4>${itemData.name}</h4>
       <p>${itemData.description}</p>
       <p class="price">$${itemData.price}</p>
