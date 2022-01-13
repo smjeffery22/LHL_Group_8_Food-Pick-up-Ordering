@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const itemsRoutes = (db) => {
+const usersRoutes = (db) => {
   router.get('/menu', (req, res) => {
     db.query(`SELECT * FROM items;`)
       .then((data) => {
@@ -12,14 +12,14 @@ const itemsRoutes = (db) => {
   });
 
   router.get('/order_checkout', (req, res) => {
-    res.send('checkout');
+    res.render('order_checkout');
   })
 
   router.get('/order_confirmation', (req, res) => {
-    res.send('confirmation');
+    res.render('order_confirmation');
   })
 
   return router;
 };
 
-module.exports = itemsRoutes;
+module.exports = usersRoutes;

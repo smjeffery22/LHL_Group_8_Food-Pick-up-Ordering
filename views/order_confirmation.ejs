@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Menu</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/checkout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/order_confirmation.js"></script>
+</head>
+
+<body style="background-color: powderblue;">
+
+  <header>
+    <h1>Order Summary</h1>
+  </header>
+
+  <main>
+    <section id="order-summary">
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody id="order-summary-list">
+          <tr>
+            <td>Burger</td>
+            <td>1</td>
+            <td>6.99</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td id="order-total" colspan="3">Order Total: </td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+  </main>
+</body>
+
+</html>
