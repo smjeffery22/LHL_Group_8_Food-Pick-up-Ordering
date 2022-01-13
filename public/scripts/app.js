@@ -5,6 +5,8 @@ $(document).ready(function () {
   const renderMenuItem = (itemData) => {
     return `
 <section id="food-menu">
+<h2 class="food-menu-heading">Food Menu</h2>
+<h4 class="food-menu-heading">Burgers</h4>
 <div class="food-menu-container container">
   <div class="food-menu-item">
     <div class="food-img">
@@ -13,7 +15,7 @@ $(document).ready(function () {
     <div class="food-description">
       <h2 class="food-titile">${itemData.name}</h2>
       <p>
-        ${itemData.description}
+         ${itemData.description}
       </p>
       <p class="food-price">Price: &#8377; ${itemData.price}</p>
  <a href="#" class="btn btn-danger mt-3" id="item-${itemData.id}><i class="fas fa-shopping-cart"></i> Add to Cart</a>
@@ -21,7 +23,6 @@ $(document).ready(function () {
   </div>
 </div>
 </section>`
-
   }
 
   const renderCartItem = (itemId) => {
