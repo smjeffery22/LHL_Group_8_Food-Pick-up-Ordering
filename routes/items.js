@@ -16,7 +16,7 @@ const itemsRoutes = (db) => {
   })
 
   router.get('/order_confirmation', (req, res) => {
-    res.send('confirmation');
+    res.render('order_confirmation');
   })
 
   return router;
