@@ -1,101 +1,99 @@
 // Client facing scripts here
 $(document).ready(function () {
-  const renderMenuItem = (itemData) => {
-    return `
-    <div class="card" style="margin: 1em">
-      <img src="${itemData.photo_url}" alt="burger image">
-      <h4>${itemData.name}</h4>
-      <p>${itemData.description}</p>
-      <p class="price">$${itemData.price}</p>
-      <button id="item-${itemData.id}" class="add-cart-button">Add to Cart</button>
-    </div>`
-  }
+  // add items to the cart
+  const cartArray = [];
+  const addCartButtons = $.find('.add-cart-button');
 
-  const renderCartItem = (itemId) => {
-    return `<p>${itemId}</p>`
-    // return `
-    // <div class="cart-item" style="margin: 1em">
-    //   <p>${itemData.name}</p>
-    //   <div>
-    //     <button>-</button>
-    //     <p>1</p>
-    //     <button>+</button>
-    //   </div>
-    //   <p class="price">$${itemData.price}</p>
-    //   <button class="remove-cart-item">(-)</button>
-    // </div>`
-  }
+  for (const addCartButton of addCartButtons) {
+    $(addCartButton).on('click', function (e) {
+      const cartList = $('#cart-list');
+      const itemNumber = e.target.id;
+      const itemName = $(this).parent().children('.item-name').text();
+      const itemPrice = $(this).parent().children('.item-price').text();
+      const isItemDuplicate = cartList.children(`#cart-${itemNumber}`).attr('id') !== `cart-${itemNumber}`;
 
-  $.get("/api/v1/items")
-    .then(menuItems => {
-      for (const item of menuItems) {
-        if (item.category === 'Burgers') {
-          $('#menu-burgers').append(renderMenuItem(item));
-        }
+      // prevent duplicate items being added to the cart
+      if (isItemDuplicate) {
+        cartList.append(addToCart(itemNumber, itemName, itemPrice));
 
-        if (item.category === 'Sides') {
-          $('#menu-sides').append(renderMenuItem(item));
-        }
+        cartArray.push({
+          number: itemNumber,
+          name: itemName,
+          price: itemPrice,
+          qty: 1,
+          total: 123
+        });
+        console.log(cartArray);
 
-        if (item.category === 'Drinks') {
-          $('#menu-drinks').append(renderMenuItem(item));
-        }
+      } else {
+        alert('Already added in the cart!');
       }
 
-      const addCartButtons = $.find('.add-cart-button');
+      // remove items from the cart
+      $(`#remove-cart-${itemNumber}`).on('click', function () {
+        $(this).parent().remove();
+        rmvCartArrItem(cartArray, itemNumber);
+      })
 
-      for (const button of addCartButtons) {
-        $(button).on('click', (e) => {
-          $('#cart-list').append(renderCartItem(e.target.id));
-        })
-      }
-    })
+      // update qty in cart
+      let cartQtyEl = $(`#cart-qty-${itemNumber}`);
+      let cartQty = parseInt(cartQtyEl.val());
 
+      $(`#cart-qty-add-${itemNumber}`).on('click', function () {
+        cartQty += 1;
+        cartQtyEl.val(cartQty);
+        updateCartArrQty(cartArray, itemNumber, cartQty);
+      })
 
-
-
-
-  // event listener for adding item to cart
-  // $('.add-cart-button').on('click', () => {
-  //   $('#cart-light-b').empty();
-
-  //   $('#cart-light-b').append(`
-  //   <div>
-  //       Light Burger
-  //       <button class="cart-qty-remove">-</button>
-  //       <input type="number" class="cart-qty">
-  //       <button class="cart-qty-add">+</button>
-  //       $9.99
-  //       $9.99
-  //       <button class="cart-light-b-remove">(-)</button>
-  //   </div>`)
-  // });
-
-
-
-  // event listener for removing item from cart
-  $('.cart-light-b-remove').on('click', (e) => {
-    e.preventDefault();
-    $('.cart-light-b-remove').parent().remove();
-  });
-
-  // event listener for updating qty in cart
-  const updateCartQty = () => {
-    let cartQty = parseInt($('.cart-qty').val());
-    console.log(typeof (cartQty));
-
-    $('.cart-qty-remove').on('click', (e) => {
-      e.preventDefault();
-      cartQty -= 1;
-      $('.cart-qty').val(cartQty);
-    })
-
-    $('.cart-qty-add').on('click', (e) => {
-      e.preventDefault();
-      cartQty += 1;
-      $('.cart-qty').val(cartQty);
+      $(`#cart-qty-rmv-${itemNumber}`).on('click', function () {
+        if (cartQty <= 1) {
+          $(this).parent().remove();
+          rmvCartArrItem(cartArray, itemNumber);
+        } else {
+          cartQty -= 1;
+          cartQtyEl.val(cartQty);
+          updateCartArrQty(cartArray, itemNumber, cartQty);
+        }
+      })
     })
   }
-
-  updateCartQty();
+  $('#checkout').on('click', () => {
+    window.localStorage.setItem('cart', JSON.stringify(cartArray));
+    console.log(window.localStorage.getItem('cart'));
+  })
 })
+
+
+
+// add to cart list
+const addToCart = (number, name, price) => {
+  return `
+  <div id="cart-${number}" class="cart-item">
+    ${name}
+    ${price}
+    <button id="cart-qty-rmv-${number}" class="cart-qty-rmv">-</button><input id="cart-qty-${number}" class="cart-qty" type="number" value="1" min="1" style="width: 40px"><button id="cart-qty-add-${number}" class="cart-qty-add">+</button>
+    123
+    <button id="remove-cart-${number}" class="remove-cart-item">(x)</button>
+  </div>`
+}
+
+// delete cart item from cart array
+const rmvCartArrItem = (cartArr, itemNumber) => {
+  for (const cartItem of cartArr) {
+    if (cartItem.number === itemNumber) {
+      const index = cartArr.indexOf(cartItem);
+      cartArr.splice(index, 1);
+      // console.log('current cart:', cartArr);
+    }
+  }
+};
+
+// update item qty in cart array
+const updateCartArrQty = (cartArr, itemNumber, cartQty) => {
+  for (const cartItem of cartArr) {
+    if (cartItem.number === itemNumber) {
+      cartItem.qty = cartQty;
+      console.log('current cart:', cartArr);
+    }
+  }
+};
