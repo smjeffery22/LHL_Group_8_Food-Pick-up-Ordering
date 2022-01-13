@@ -24,9 +24,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  },
-  "[json]": {
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true,
-      }
+  }
 }

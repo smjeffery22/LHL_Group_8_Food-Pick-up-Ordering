@@ -4,28 +4,24 @@ $(document).ready(function () {
 
   const renderMenuItem = (itemData) => {
     return `
-    <div class="container">
-     <div class="row">
-        <div class="col-sm-12 col-lg-6">
-    <div class="card" style="flex-direction:unset">
-      <img class="card-img" src="${itemData.photo_url}" class="burger-image" alt="burger image"">
-      <div class="card-img-overlay d-flex justify-content-end">
-          <a href="#" class="card-link text-danger like">
-            <i class="fas fa-heart"></i>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">${itemData.name}</h4>
-          <p class="card-text">
-            ${itemData.description}</p>
-
-          <div class="buy d-flex justify-content-between align-items-center">
-            <div class="price text-success"><h5 class="mt-4">${itemData.price}</h5></div>
-             <a href="#" class="btn btn-danger mt-3" id="item-${itemData.id}><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-          </div>
+<section id="food-menu">
+<div class="food-menu-container container">
+  <div class="food-menu-item">
+    <div class="food-img">
+      <img src="${itemData.photo_url}" alt="" />
+    </div>
+    <div class="food-description">
+      <h2 class="food-titile">${itemData.name}</h2>
+      <p>
+        ${itemData.description}
+      </p>
+      <p class="food-price">Price: &#8377; ${itemData.price}</p>
+ <a href="#" class="btn btn-danger mt-3" id="item-${itemData.id}><i class="fas fa-shopping-cart"></i> Add to Cart</a>
     </div>
   </div>
-</div>`
+</div>
+</section>`
+
   }
 
   const renderCartItem = (itemId) => {
