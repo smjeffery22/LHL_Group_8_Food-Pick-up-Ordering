@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/styles/checkout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/menu.js"></script>
 </head>
 
 <body style="background-color: powderblue;">
@@ -29,7 +29,7 @@
             <% if (item.category === 'Burgers') { %>
               <div id="item-<%= item.id %>" class="menu-item">
                 <img src="<%= item.photo_url %>" alt="burger image">
-                <h4 class="item-name"> <%= item.name %> </h4>
+                <h4 class="item-name"><%= item.name %></h4>
                 <p><%= item.description %></p>
                 <div class="item-price"><%= item.price %></div>
                 <button id="item-<%= item.id %>" class="add-cart-button">Add to Cart</button>
@@ -73,6 +73,8 @@
       <div id="cart-list">
         <div><span>Item</span><span>Price</span><span>Qty</span><span>Total</span></div>
       </div>
+      <div class="subtotal">Subotal: $<span id="subtotal-price">0.00</span></div>
+      <!-- <a href="/order_checkout" id="checkout">CHECKOUT</a> -->
       <button id="checkout">CHECKOUT</button>
     </section>
   </main>
