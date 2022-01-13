@@ -1,4 +1,3 @@
-// Client facing scripts here
 $(document).ready(function () {
   // add items to the cart
   const cartArray = [];
@@ -74,10 +73,9 @@ $(document).ready(function () {
         if (cartArray.length === 0) {
           alert('You cart is empty!');
         } else {
-          // window.location.href = '/order_checkout';
           window.localStorage.setItem('cart', JSON.stringify(cartArray));
           window.localStorage.setItem('subtotal', $('#subtotal-price').text());
-          console.log(window.localStorage.getItem('cart'));
+          window.location.href = '/order_checkout';
         }
       })
     })
@@ -103,7 +101,6 @@ const addToCart = (number, name, price) => {
 }
 
 // update subtotal in cart
-// need to fix bug to make subtotal 0 when all items in the cart are removed
 const updateCartSubtotal = () => {
   const cartItems = $.find('.cart-item');
   let subtotal = 0.00;

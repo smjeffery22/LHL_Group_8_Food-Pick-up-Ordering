@@ -12,7 +12,7 @@ const itemsRoutes = (db) => {
   });
 
   router.get('/order_checkout', (req, res) => {
-    res.send('checkout');
+    res.render('order_checkout');
   })
 
   router.get('/order_confirmation', (req, res) => {
