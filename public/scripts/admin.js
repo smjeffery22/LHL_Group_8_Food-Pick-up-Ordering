@@ -2,9 +2,8 @@ $(document).ready(function () {
   $.get('/api/orders')
     .then((data) => {
       console.log(data);
-      renderOrder(data)
+      // renderOrder(data)
     })
-
 })
 
 const renderOrder = function (orders) {

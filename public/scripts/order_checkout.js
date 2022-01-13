@@ -14,7 +14,6 @@ $(document).ready(function () {
         console.log(data);
       }
     })
-      .then()
     window.location.href = '/users/order_confirmation';
   })
 })

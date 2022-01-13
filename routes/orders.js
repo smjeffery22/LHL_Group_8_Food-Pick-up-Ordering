@@ -16,7 +16,7 @@ const ordersRoutes = (db) => {
     RETURNING *;`, [dateNow, null, null]) // last null - pass in user id (cookie)
       .then((data) => {
         const order = data.rows[0]; // to grab order id and add into order items table
-        console.log(order);
+        console.log('order1:', order);
         userOrder.forEach(item => {
           const queryString = `
               INSERT INTO order_items (quantity, total_price, order_id, item_id)
@@ -27,6 +27,7 @@ const ordersRoutes = (db) => {
           // items from the new order added in order items table
           db.query(queryString, values)
         })
+        console.log('order2:', order)
         return order;
       })
       .then((newOrderRes) => res.json({ message: 'Order Created', order: newOrderRes }))
