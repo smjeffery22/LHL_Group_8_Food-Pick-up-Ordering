@@ -5,8 +5,8 @@ const router = express.Router();
 const ordersRoutes = (db) => {
   // CREATE order
   router.post('/', (req, res) => {
-    const { items } = req.body; // form in front-end
-    console.log(items);
+    const { userOrder } = req.body; // form in front-end
+    console.log('coming from checkout page:', userOrder);
     const dateNow = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
     // new order created in orders table
@@ -17,12 +17,12 @@ const ordersRoutes = (db) => {
       .then((data) => {
         const order = data.rows[0]; // to grab order id and add into order items table
         console.log(order);
-        items.forEach(item => {
+        userOrder.forEach(item => {
           const queryString = `
               INSERT INTO order_items (quantity, total_price, order_id, item_id)
               VALUES ($1, $2, $3, $4)
               RETURNING *;`
-          const values = [item.quantity, item.totalPrice, order.id, item.itemId]
+          const values = [item.qty, item.totalPrice, order.id, item.number]
 
           // items from the new order added in order items table
           db.query(queryString, values)

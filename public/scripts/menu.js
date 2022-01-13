@@ -75,7 +75,7 @@ $(document).ready(function () {
         } else {
           window.localStorage.setItem('cart', JSON.stringify(cartArray));
           window.localStorage.setItem('subtotal', $('#subtotal-price').text());
-          window.location.href = '/order_checkout';
+          window.location.href = '/users/order_checkout';
         }
       })
     })

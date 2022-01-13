@@ -32,7 +32,7 @@
                 <h4 class="item-name"><%= item.name %></h4>
                 <p><%= item.description %></p>
                 <div class="item-price"><%= item.price %></div>
-                <button id="item-<%= item.id %>" class="add-cart-button">Add to Cart</button>
+                <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
               </div>
               <% } %>
             <% } %>
@@ -46,7 +46,7 @@
                   <h4 class="item-name"> <%= item.name %> </h4>
                   <p><%= item.description %></p>
                   <div class="item-price"><%= item.price %></div>
-                  <button id="item-<%= item.id %>" class="add-cart-button">Add to Cart</button>
+                  <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
                 </div>
               <% } %>
             <% } %>
@@ -60,7 +60,7 @@
                   <h4 class="item-name"> <%= item.name %> </h4>
                   <p><%= item.description %></p>
                   <div class="item-price"><%= item.price %></div>
-                  <button id="item-<%= item.id %>" class="add-cart-button">Add to Cart</button>
+                  <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
                 </div>
               <% } %>
             <% } %>
