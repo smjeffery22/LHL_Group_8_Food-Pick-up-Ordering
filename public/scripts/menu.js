@@ -8,8 +8,8 @@ $(document).ready(function () {
     $(addCartButton).on('click', function (e) {
       const cartList = $('#cart-list');
       const itemNumber = e.target.id;
-      const itemName = $(this).parent().children('.item-name').text();
-      const itemPrice = $(this).parent().children('.item-price').text();
+      const itemName = $(this).parent().children('.food-title').text();
+      const itemPrice = $(this).parent().children('.food-price').text();
       const isItemDuplicate = cartList.children(`#cart-${itemNumber}`).attr('id') !== `cart-${itemNumber}`;
       let subtotal = parseFloat($('#subtotal-price').text());
 
