@@ -17,12 +17,16 @@
 
 .checkout {
   background-color: lightgrey;
-  width: 30%;
+  position: fixed;
+  right: 70px;
+  width: 500px;
   height: 600px;
   font-family: "Poppins", sans-serif;
   font-size: 30px;
   text-align: center;
   padding: 10px;
+  color: black;
+
 
 }
 
@@ -58,6 +62,8 @@
 
 .food-menu-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -73,11 +79,16 @@
 .food-menu-item {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
 .food-description {
   margin: auto 1.5rem;
+}
+
+.food-title {
+  margin: 0;
 }
 
 .font-title {
@@ -98,10 +109,10 @@
   margin-bottom: 10px;
 }
 
-.checkout {
-  color: black;
-  font-size: 30px;
-  font-family: "Poppins", sans-serif;
+.food-price-symb {
+  color: #117964;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .checkout-title {
@@ -109,13 +120,17 @@
   font-size: 3.4rem;
   font-weight: 400;
   color: black;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
-.cart-list {
+#cart-list {
   color: black;
-  font-size: 30px;
+  font-size: 20px;
   font-family: "Poppins", sans-serif;
 }
+
+
 
 .list {
   margin-top: -70px;
@@ -150,4 +165,12 @@
   font-family: "Poppins", sans-serif;
   margin-right: 40%;
 }
+
+.cart-item {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
 
