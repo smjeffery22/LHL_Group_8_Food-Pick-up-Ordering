@@ -5,9 +5,9 @@ $(document).ready(function () {
   for (const cartItem of cart) {
     $('#order-summary-list').append(`
       <tr>
-        <td>${cartItem.name}</td>
-        <td>${cartItem.qty}</td>
-        <td>${cartItem.totalPrice}</td>
+        <td class="item-name">${cartItem.name}</td>
+        <td class="item-qty">${cartItem.qty}</td>
+        <td class="item-total-price">$${cartItem.totalPrice}</td>
       </tr>
     `)
   }

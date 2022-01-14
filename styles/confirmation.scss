@@ -9,10 +9,9 @@ div {
   border: 15px solid #f1f1f1;
   padding: 50px;
   margin: 20px;
-  
 }
 
-.order-summary-title{
+.order-summary-title {
   font-family: "Poppins", sans-serif;
   width: 65%;
   height: 25px;
@@ -40,7 +39,8 @@ th {
 }
 
 #order-total {
-  padding-left: 250px;
+  text-align: right;
+  font-weight: 700;
 }
 
 .confirm-showcase {
@@ -50,11 +50,28 @@ th {
   opacity: 0.6;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
 .confirm-title {
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   margin-right: 40%;
+}
+
+.item-qty {
+  text-align: center;
+}
+
+.item-total-price {
+  text-align: right;
+}
+
+.total-price {
+  padding-right: 10px;
+}
+
+.item {
+  padding-left: 10px;
+  text-align: left;
 }

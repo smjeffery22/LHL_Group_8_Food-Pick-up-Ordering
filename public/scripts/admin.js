@@ -28,7 +28,7 @@ $(document).ready(function () {
     .then((data) => {
       console.log(data);
 
-      // renderOrder(data)
+      renderOrder(data)
 
       // const orderItems = data;
       // const orders = {};
@@ -71,26 +71,16 @@ $(document).ready(function () {
 })
 
 const renderOrder = function (orders) {
-  const orderSummary = $('.order-list');
+  const orderSummary = $('.order-item-list');
 
   for (const order of orders) {
     orderSummary.prepend(`
-    <div class="order-list-container">
-    <h4 class="text-muted mb-3 order-number">Order #${order.order_id}</h4>
-    <table class="text-muted table table-responsive">
-      <thead>
-        <th>Item #</th>
-        <th>Item</th>
-        <th>Quantity</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>${order.item_id}</td>
-          <td>${order.item_name}</td>
-          <td>${order.quantity}</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>`)
+      <tr>
+        <td>${order.order_id}</td>
+        <td>${order.item_id}</td>
+        <td>${order.item_name}</td>
+        <td>${order.quantity}</td>
+      </tr>`
+      )
   }
 }

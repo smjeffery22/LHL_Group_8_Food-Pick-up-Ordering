@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main2.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
 
@@ -23,9 +23,18 @@
   <div class="container">
     <div class="row">
       <div class="col-6 order-list">
-        <ul>
-          li
-        </ul>
+        <div class="order-list-container">
+          <h4 class="text-muted mb-3 order-number">Orders</h4>
+          <table class="text-muted table table-responsive">
+            <thead>
+              <th>Order #</th>
+              <th>Item #</th>
+              <th>Item</th>
+              <th>Quantity</th>
+            </thead>
+            <tbody class="order-item-list"></tbody>
+          </table>
+          </div>
       </div>
 
       <div class="col-6">

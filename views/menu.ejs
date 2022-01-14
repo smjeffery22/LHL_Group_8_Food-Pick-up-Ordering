@@ -12,17 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
    <script type="text/javascript" src="/scripts/menu.js"></script>
- <script type="text/javascript" src="/scripts/app.js"></script> 
+ <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body style="background-color: #f1f1f1;">
 
   <header>
     <section class="showcase-area" id="showcase">
-            <div class="showcase-container">
-              <h1 class="main-title" id="home">Burger Joint</h1>
-            </div>
-          </section>
+            <div class="showcase-container">
+              <h1 class="main-title" id="home">Burger Joint</h1>
+            </div>
+          </section>
   </header>
 
   <main class="menu-container">
@@ -34,7 +34,6 @@
         <div>
           <% for (item of menuItems) { %>
             <% if (item.category === 'Burgers') { %>
-
               <section id="food-menu">
                 <div class="food-menu-container container">
                     <div class="food-menu-item">
@@ -46,14 +45,14 @@
                       <p>
                         <%= item.description %>
                       </p>
-                      <div class="food-price"><%= item.price %></div>
+                      <span class="food-price-symb">$</span>
+                      <span class="food-price"><%= item.price %></span>
                  <!-- <a href="#" class="btn btn-danger mt-3" id="<%= item.id %>" ><i class="fas fa-shopping-cart"></i> Add to Cart</a> -->
                  <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
                     </div>
                   </div>
                 </div>
                 </section>
-
               <% } %>
             <% } %>
         </div>
@@ -62,7 +61,6 @@
           <h4 class="food-menu-subheading">S i d e s</h4>
             <% for (item of menuItems) { %>
               <% if (item.category === 'Sides') { %>
-
                 <section id="food-menu">
                   <div class="food-menu-container container">
                       <div class="food-menu-item">
@@ -74,7 +72,8 @@
                         <p>
                           <%= item.description %>
                         </p>
-                        <div class="food-price"><%= item.price %></div>
+                        <span class="food-price-symb">$</span>
+                        <span class="food-price"><%= item.price %></span>
                    <!-- <a href="#" class="btn btn-danger mt-3" id="<%= item.id %>" ><i class="fas fa-shopping-cart"></i> Add to Cart</a> -->
                    <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
                       </div>
@@ -88,7 +87,6 @@
           <h4 class="food-menu-subheading">D r i n k s</h4>
             <% for (item of menuItems) { %>
               <% if (item.category === 'Drinks') { %>
-
                 <section id="food-menu">
                   <div class="food-menu-container container">
                       <div class="food-menu-item">
@@ -101,7 +99,8 @@
                         <p>
                           <%= item.description %>
                         </p>
-                        <div class="food-price"><%= item.price %></div>
+                        <span class="food-price-symb">$</span>
+                        <span class="food-price"><%= item.price %></span>
                    <!-- <a href="#" class="btn btn-danger mt-3" id="<%= item.id %>" ><i class="fas fa-shopping-cart"></i> Add to Cart</a> -->
                    <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
                       </div>
@@ -118,7 +117,7 @@
       <h3 class="checkout-title">Cart</h3>
 
       <div id="cart-list">
-      
+
       </div>
       <div class="subtotal">Subtotal: $<span id="subtotal-price">0.00</span></div>
       <!-- <a href="/order_checkout" id="checkout">CHECKOUT</a> -->
