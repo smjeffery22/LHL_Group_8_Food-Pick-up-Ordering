@@ -1,0 +1,95 @@
+.menu-container {
+  display: flex;
+  margin-left: 110px;
+}
+
+.menu {
+  background-color:lightgrey;
+  width: 60%;
+  height: 4100px;
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+.checkout {
+  background-color: lightgrey;
+  width: 30%;
+  height: 600px;
+  font-weight: 500;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
+
+.restaurant-name {
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 60px;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 25px;
+}
+
+.food-menu-heading {
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: #666;
+  border-bottom: 2px solid black;
+}
+
+.food-menu-subheading {
+  text-align: left;
+  margin-top: 50px;
+  font-size: 2rem;
+  font-weight: 200;
+  color: #666;
+}
+
+.food-menu-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.food-menu-container img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.food-menu-item {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+
+.food-description {
+  margin: auto 1.5rem;
+}
+
+.font-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.food-description p {
+  font-size: 1.4rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.food-description .food-price {
+  color: #117964;
+  font-weight: 700;
+}

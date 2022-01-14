@@ -20,27 +20,38 @@
 
   <main>
     <section id="order-summary">
-      <div class="order">
-        <table>
-          <thead>
-            <tr>
-              <th>Order #</th>
-              <th>Item #</th>
-              <th>Item</th>
-              <th>Quantity</th>
-            </tr>
-          </thead>
-          <tbody id="order-summary-list">
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>Burger</td>
-              <td>1</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="5">Order #1</th>
+          </tr>
+          <tr>
+            <th colspan="5">Time Placed: 2021-01-13</th>
+          </tr>
+        </thead>
+          <tr>
+            <th>Order #</th>
+            <th>Item #</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Time Placed</th>
+          </tr>
+        <tbody id="order-summary-list">
+          <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>Burger</td>
+            <td>1</td>
+            <td>2022-01-13</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
+    <form action="" class="time-estimate">
+      <input type="number" name="timeestimate">
+      <button id="btn-time-estimate" type="submit">Update Time</button>
+    </form>
+    <button id="btn-order-ready" type="submit">Order Rea</button>
   </main>
 </body>
 

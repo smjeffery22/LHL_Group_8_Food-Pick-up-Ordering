@@ -1,4 +1,5 @@
 const express = require('express');
+const { sendOrderSMS } = require('../send-sms');
 const router = express.Router();
 
 // all routes for admin
@@ -28,18 +29,25 @@ const ordersRoutes = (db) => {
           db.query(queryString, values)
         })
         console.log('order2:', order)
+        sendOrderSMS();
         return order;
       })
       .then((newOrderRes) => res.json({ message: 'Order Created', order: newOrderRes }))
       .catch((err) => res.status(400).json({ message: err.message }))
   })
 
+  // send SMS
+  router.post('/notification', (req, res) => {
+
+  })
+
   // READ all orders
   router.get('/', (req, res) => {
     const queryString = `
-    SELECT oi.order_id, oi.item_id, i.name AS item_name, oi.quantity
+    SELECT oi.order_id, oi.item_id, i.name AS item_name, oi.quantity, o.time_placed
     FROM order_items AS oi
-    JOIN items as i ON oi.item_id = i.id`
+    JOIN items as i ON oi.item_id = i.id
+    JOIN orders as o ON oi.order_id = o.id`
 
     db.query(queryString)
       .then((data) => res.json(data.rows))
