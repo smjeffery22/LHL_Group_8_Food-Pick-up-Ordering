@@ -2,46 +2,52 @@
 <html lang="en">
 
 <head>
-  <title>Menu</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Admin</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/checkout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/admin.js"></script>
 </head>
 
-<body style="background-color: powderblue;">
+<body>
 
-  <header>
-    <h1>Orders</h1>
-  </header>
-
-  <main>
-    <section id="order-summary">
-      <div class="order">
-        <table>
-          <thead>
-            <tr>
-              <th>Order #</th>
-              <th>Item #</th>
-              <th>Item</th>
-              <th>Quantity</th>
-            </tr>
-          </thead>
-          <tbody id="order-summary-list">
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>Burger</td>
-              <td>1</td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 order-list">
+        <ul>
+          li
+        </ul>
       </div>
-    </section>
-  </main>
-</body>
 
-</html>
+      <div class="col-6">
+        <div class="order-update-container py-5 text-center">
+          <form class="form-group mb-4 time-estimate" action="/admin/time_notification" method="POST">
+            <input class="form-control mb-3" type="number" name="timeestimate"
+              placeholder="How long will the order take?">
+            <button type="submit" class="btn btn-primary">Update Time</button>
+          </form>
+          <button id="btn-order-ready" type="submit" class="btn btn-primary">Order Ready</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"
+    integrity="sha256-ifihHN6L/pNU1ZQikrAb7CnyMBvisKG3SUAab0F3kVU=" crossorigin="anonymous"></script>
