@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -22,64 +23,49 @@
 <body>
 
 <div class="container">
-  <div class="py-5 text-center">
-    <!-- <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-    <h2>Order:</h2>
-
-    <p class="text-muted">Customer:</span></p>
-    <p class="text-muted">Status:</p>
-    <p class="text-muted">Place Order Time:</p>
-      <form class="form-inline"></form>
-        <div class="form-group mb-2">
+  <div class="row">
+    <div class="col-6">
+  <div class="orderupdate-container py-5 text-center">
+    <p class="text-muted">Customer:</p>
+        <div class="form-group mb-4">
           <label class="text-muted" for="estimatedTime">Enter Estimated Time:</label>
-          <input class="form-control" type="number" name="estimatedTime" placeholder="How long will it take?" style="width: 300px; margin: 1em">
+          <input class="form-control mb-3" type="number" name="estimatedTime" placeholder="How long will it take?">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
-    <p class="text-muted" class="text-muted">Estimated Time:</p>
-      <form class="form-inline">
+    <p class="text-muted">Estimated Time:</p>
         <div class="form-group mb-2">
-          <label class="text-muted" for="completedTime">Completed time:</label>
+          <label class="text-muted d-block" for="completedTime">Completed time:</label>
           <input type="hidden" name ="completedTime" value = "Now()">
           <button type="submit" class="btn btn-primary">Order is Ready!</button>
         </div>
-      </form>
-    <p class="text-muted">Completed Time:
   </div>
+</div>
 
-
-
-  <div class="row">
-    <div class="col-md-4 order-md-2 mb-4">
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Order</span>
-
-      </h4>
-      <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"></h6>
-            <small class="text-muted">
-              <table>
-                <tr>
-                  <th>Item</th>
-                  <th>Price</th>
-                  <th class=>Quantity</th>
-                  <th>$</th>
-                </tr>
-              </table>
-            </small>
-          </div>
-
-        <li class="list-group-item d-flex justify-content-between">
-           <span>Total (CAD) </span>
-
-        </li>
-      </ul>
-    </div>
-    <div id='form' class="col-md-8 order-md-1">
-    </div>
-  </div>
+<div class="col-6">
+<div class="orderlist-container">
+  <h4 class="text-muted mb-3">
+    Order Number:
+  </h4>
+          <table class="text-muted table table-responsive">
+            <thead>
+              <th>Item</th>
+              <th>Price</th>
+              <th class=>Quantity</th>
+              <th>$</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Item here</td>
+                <td>$10</td>
+                <td>1</td>
+                <td>$$</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</div>
+</div>
 </div>
   <!-- Bootstrap core JavaScript
     ================================================== -->
