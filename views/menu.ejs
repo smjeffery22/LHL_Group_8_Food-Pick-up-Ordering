@@ -6,75 +6,124 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/checkout.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/menu.js"></script>
+   <script type="text/javascript" src="/scripts/menu.js"></script>
+ <script type="text/javascript" src="/scripts/app.js"></script> 
 </head>
 
-<body style="background-color: powderblue;">
+<body style="background-color: #f1f1f1;">
 
   <header>
-    <h1 class="restaurant-name">Burger Joint 🍔</h1>
-    <h2 class="slogan" style="font-family: fantasy;">Everything Burgers. Everything Fries.Everything Delicious!</h2>
+    <section class="showcase-area" id="showcase">
+            <div class="showcase-container">
+              <h1 class="main-title" id="home">Burger Joint</h1>
+            </div>
+          </section>
   </header>
 
   <main class="menu-container">
     <section class="menu">
-      <h2 class="menu-title">Menu</h2>
+      <h2 class="food-menu-heading">Menu</h2>
+      <h4 class="food-menu-subheading">B u r g e r s</h4>
       <div class="row menu-list">
-        <div class="column menu-burgers" style="background-color:#aaa; padding: 0.8em">
-          <h2>Burgers</h2>
+
+        <div>
           <% for (item of menuItems) { %>
             <% if (item.category === 'Burgers') { %>
-              <div id="item-<%= item.id %>" class="menu-item">
-                <img src="<%= item.photo_url %>" alt="burger image">
-                <h4 class="item-name"><%= item.name %></h4>
-                <p><%= item.description %></p>
-                <div class="item-price"><%= item.price %></div>
-                <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
-              </div>
+
+              <section id="food-menu">
+                <div class="food-menu-container container">
+                    <div class="food-menu-item">
+                    <div class="food-img">
+                      <img src="<%= item.photo_url %>" alt="drink image" />
+                    </div>
+                    <div class="food-description">
+                      <h4 class="food-title"> <%= item.name %> </h4>
+                      <p>
+                        <%= item.description %>
+                      </p>
+                      <div class="food-price"><%= item.price %></div>
+                 <!-- <a href="#" class="btn btn-danger mt-3" id="<%= item.id %>" ><i class="fas fa-shopping-cart"></i> Add to Cart</a> -->
+                 <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+                </section>
+
               <% } %>
             <% } %>
         </div>
-        <div class="column menu-sides" style="background-color:#aaa; padding: 0.8em">
-          <h2>Sides</h2>
+
+        <div>
+          <h4 class="food-menu-subheading">S i d e s</h4>
             <% for (item of menuItems) { %>
               <% if (item.category === 'Sides') { %>
-                <div id="item-<%= item.id %>" class="menu-item">
-                  <img src="<%= item.photo_url %>" alt="side image">
-                  <h4 class="item-name"> <%= item.name %> </h4>
-                  <p><%= item.description %></p>
-                  <div class="item-price"><%= item.price %></div>
-                  <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
-                </div>
+
+                <section id="food-menu">
+                  <div class="food-menu-container container">
+                      <div class="food-menu-item">
+                      <div class="food-img">
+                        <img src="<%= item.photo_url %>" alt="drink image" />
+                      </div>
+                      <div class="food-description">
+                        <h4 class="food-title"> <%= item.name %> </h4>
+                        <p>
+                          <%= item.description %>
+                        </p>
+                        <div class="food-price"><%= item.price %></div>
+                   <!-- <a href="#" class="btn btn-danger mt-3" id="<%= item.id %>" ><i class="fas fa-shopping-cart"></i> Add to Cart</a> -->
+                   <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
+                      </div>
+                    </div>
+                  </div>
+                  </section>
               <% } %>
             <% } %>
         </div>
-        <div class="column menu-drinks" style="background-color:#aaa; padding: 0.8em">
-          <h2>Drinks</h2>
+        <div>
+          <h4 class="food-menu-subheading">D r i n k s</h4>
             <% for (item of menuItems) { %>
               <% if (item.category === 'Drinks') { %>
-                <div id="item-<%= item.id %>" class="menu-item">
-                  <img src="<%= item.photo_url %>" alt="drink image">
-                  <h4 class="item-name"> <%= item.name %> </h4>
-                  <p><%= item.description %></p>
-                  <div class="item-price"><%= item.price %></div>
-                  <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
-                </div>
+
+                <section id="food-menu">
+                  <div class="food-menu-container container">
+                      <div class="food-menu-item">
+                      <div class="food-img">
+                        <img src="<%= item.photo_url %>" alt="drink image" />
+                      </div>
+                      <div class="drinks-container">
+                      <div class="food-description">
+                        <h4 class="food-title"> <%= item.name %> </h4>
+                        <p>
+                          <%= item.description %>
+                        </p>
+                        <div class="food-price"><%= item.price %></div>
+                   <!-- <a href="#" class="btn btn-danger mt-3" id="<%= item.id %>" ><i class="fas fa-shopping-cart"></i> Add to Cart</a> -->
+                   <button id="<%= item.id %>" class="item-<%= item.id %> add-cart-button">Add to Cart</button>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  </section>
+                <% } %>
               <% } %>
-            <% } %>
         </div>
     </section>
 
     <section class="checkout cart">
-      <h3 class="checkout-title">CART</h3>
+      <h3 class="checkout-title">Cart</h3>
 
       <div id="cart-list">
-        <div><span>Item</span><span>Price</span><span>Qty</span><span>Total</span></div>
+      
       </div>
-      <div class="subtotal">Subotal: $<span id="subtotal-price">0.00</span></div>
+      <div class="subtotal">Subtotal: $<span id="subtotal-price">0.00</span></div>
       <!-- <a href="/order_checkout" id="checkout">CHECKOUT</a> -->
+      <br/>
+      <!-- <a href="#" class="btn btn-danger mt-3" id="checkout"><i class="fas fa-shopping-cart"></i>Checkout</a> -->
       <button id="checkout">CHECKOUT</button>
     </section>
   </main>

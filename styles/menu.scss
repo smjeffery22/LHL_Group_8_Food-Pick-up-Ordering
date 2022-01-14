@@ -4,31 +4,31 @@
 }
 
 .menu {
-  background-color:lightgrey;
-  width: 60%;
-  height: 4100px;
+  background-color: #f1f1f1;
+  font-family: "Poppins", sans-serif;
+  width: 65%;
+  height: 100%;
   margin-right: 20px;
-  font-weight: 500;
+  // font-weight: 500;
   font-size: 30px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
-  padding: 10px;
+  padding: 25px;
 }
 
 .checkout {
   background-color: lightgrey;
   width: 30%;
   height: 600px;
-  font-weight: 500;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   text-align: center;
   padding: 10px;
+
 }
 
 .restaurant-name {
   text-align: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 60px;
 }
 
@@ -39,18 +39,21 @@
 
 .food-menu-heading {
   text-align: center;
+  font-family: "Poppins", sans-serif;
   font-size: 3.4rem;
   font-weight: 400;
-  color: #666;
-  border-bottom: 2px solid black;
+  color: black;
 }
 
 .food-menu-subheading {
-  text-align: left;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
   margin-top: 50px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 200;
-  color: #666;
+  color: black;
+  border-top: 2px solid black;
+  padding: 25px;
 }
 
 .food-menu-container {
@@ -79,17 +82,72 @@
 
 .font-title {
   font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
-  color: #444;
+  color: black;
 }
 
 .food-description p {
   font-size: 1.4rem;
-  color: #555;
-  font-weight: 500;
+  color: black;
 }
 
 .food-description .food-price {
   color: #117964;
   font-weight: 700;
+  margin-bottom: 10px;
 }
+
+.checkout {
+  color: black;
+  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.checkout-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3.4rem;
+  font-weight: 400;
+  color: black;
+}
+
+.cart-list {
+  color: black;
+  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.list {
+  margin-top: -70px;
+}
+
+.drinks-container {
+  margin-left: 150px;
+}
+
+.showcase-area {
+  height: 30vh;
+  // background: linear-gradient(rgba(240, 240, 240, 0.144), rgba(255, 255, 255, 0.336)), url("https://i.postimg.cc/Nf8yHkCt/burger-sandwich-header.jpg");    
+  background: url("https://i.postimg.cc/nLKQt8g6/burger-header.jpg");
+  opacity: 0.6;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.8rem;
+}
+
+.main-title {
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  margin-right: 40%;
+}
+
