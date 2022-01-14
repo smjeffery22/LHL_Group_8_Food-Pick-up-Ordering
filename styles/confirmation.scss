@@ -4,16 +4,75 @@ body{
 }
 
 div {
-  background-color: lightgrey;
+  background-color: #f1f1f1;
   width: 700px;
-  border: 15px solid gray;
+  border: 15px solid #f1f1f1;
   padding: 50px;
   margin: 20px;
+
 }
 
-.order-summary {
+.order-summary-title {
   font-family: "Poppins", sans-serif;
   width: 65%;
-  height: 100%;
+  height: 25px;
   margin-right: 20px;
+}
+
+#order-summary {
+  justify-content: center;
+  height: 400px;
+  background-color: #f1f1f1;
+  align-items: center;
+  width: 1500px;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+}
+
+td {
+  padding: 10px;
+  color:black;
+}
+
+th {
+  padding: 20px;
+  color:black;
+}
+
+#order-total {
+  text-align: right;
+  font-weight: 700;
+}
+
+.confirm-showcase {
+  height: 30vh;
+  // background: linear-gradient(rgba(240, 240, 240, 0.144), rgba(255, 255, 255, 0.336)), url("https://i.postimg.cc/Nf8yHkCt/burger-sandwich-header.jpg");
+  background: url("https://i.postimg.cc/nLKQt8g6/burger-header.jpg");
+  opacity: 0.6;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.confirm-title {
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  margin-right: 40%;
+}
+
+.item-qty {
+  text-align: center;
+}
+
+.item-total-price {
+  text-align: right;
+}
+
+.total-price {
+  padding-right: 10px;
+}
+
+.item {
+  padding-left: 10px;
+  text-align: left;
 }
