@@ -28,7 +28,7 @@ $(document).ready(function () {
     .then((data) => {
       console.log(data);
 
-      renderOrder(data)
+      // renderOrder(data)
 
       // const orderItems = data;
       // const orders = {};
